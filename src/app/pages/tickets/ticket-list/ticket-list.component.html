@@ -1,1 +1,21 @@
-<p>ticket-list works!</p>
+<p><strong>Total: {{ticketList?.length}} records</strong></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Assignee</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ticket of ticketList">
+      <td>[{{ticket.template.alias}}] {{ticket.template.name}} <br>#{{ticket.template_id}}</td>
+      <td>{{ticket.assignee || 'Unassigned'}}</td>
+      <td>{{ticket.priority}}</td>
+      <td>{{ticket.status}}</td>
+      <td><a class="btn btn-dark" routerLink="./tickets/{{ticket.id}}/view">View</a></td>
+    </tr>
+  </tbody>
+</table>

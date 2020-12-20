@@ -1,1 +1,26 @@
-<p>ticket-view works!</p>
+<div class="row">
+  <div class="col-12 m-1">
+    <h3>[{{ticket?.template.alias}}] {{ticket?.template.name}} <br>#{{ticket?.template_id}}</h3>
+    <hr>
+    <ul class="list-group">
+      <li class="list-group-item">
+        Submitted at: {{ ticket?.created_at | date: 'dd-MMM-yyyy' }}
+      </li>
+      <li class="list-group-item">
+        Priority: {{ticket?.priority}}
+      </li>
+      <li class="list-group-item">
+        Status: {{ticket?.status}}
+      </li>
+      <li class="list-group-item">
+        Assignee: {{ticket?.assignee || 'Unassigned'}}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row text-left">
+  <div class="col-12 m-1">
+    <a class="btn btn-info bg-dark" routerLink="/tickets">Back</a>
+  </div>
+</div>
