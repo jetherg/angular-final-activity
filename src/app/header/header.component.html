@@ -1,0 +1,30 @@
+<div class="jumbotron jumbotron-fluid bg-dark  text-white mb-0">
+  <div class="container">
+    <h1 class="display-4">My Ticket!</h1>
+    <p class="lead">Your Personal ticketing portal for UberTicket.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row bg-dark mt-1 p-1">
+    <div class="col-6">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/"> Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  text-white" routerLink="/tickets"> Tickets </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/about-us"> About Us </a>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="isLogged" class="col-6 text-right">
+      <button  (click)="onLogout()" type="button" class="btn btn-light"> logout</button>
+    </div>
+
+
+  </div>
+
+</div>

@@ -1,0 +1,31 @@
+<div class="row text-center mt-5 mb-4">
+  <div class="col-12">
+    <img style="width: 100px; height:100px;" src="{{staffProfile?.meta.photo_url || 'https://via.placeholder.com/150'}}" class="rounded-circle" alt="Staff Image">
+  </div>
+</div>
+<br>
+<div class="row text-center" *ngIf="isLogged">
+  <div class="col-12 m-1">
+    <a class="btn btn-info bg-dark" [ngStyle]="{width: '100%'}" routerLink="/profile" routerLinkActive="d-none" [routerLinkActiveOptions]="{exact:true}">Edit Profile</a>
+    <a class="btn btn-info bg-dark" [ngStyle]="{width: '100%'}" routerLink="/" routerLinkActive="d-none" [routerLinkActiveOptions]="{exact:true}">Back to Home</a>
+  </div>
+</div>
+<br>
+<div class="row text-left">
+  <div class="col-12  m-1">
+    <ul class="list-group">
+      <li class="list-group-item"><b>Name:</b><br>
+        {{staffProfile?.name || ''}}
+      </li>
+      <li class="list-group-item"><b>Job Title:</b><br>
+        {{staffProfile?.meta.job_title || ''}}
+
+      <li class="list-group-item"><b>Email:</b><br>
+        {{staffProfile?.email || ''}}
+      </li>
+      <li class="list-group-item"><b>Mobile no.:</b><br>
+        {{staffProfile?.meta.mobile_number || ''}}
+      </li>
+    </ul>
+  </div>
+</div>
