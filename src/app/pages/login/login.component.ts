@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { GlobalService } from 'src/app/services/global.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -17,9 +18,10 @@ export class LoginComponent implements OnInit {
     password: ''
   }
   loginForm: FormGroup;
-  constructor(private _globalService : GlobalService, private route: Router) { }
+  constructor(private _globalService : GlobalService, private route: Router,private title: Title) { }
 
   ngOnInit(): void {
+    this.title.setTitle('My Ticket | Login');
     this.loginForm = new FormGroup({
       username: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])

@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Profile } from './profile-model';
 import { GlobalService } from 'src/app/services/global.service';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private _globalService:GlobalService, private route:Router) { }
+  constructor(private _globalService:GlobalService, private route:Router,private title: Title) { }
 
   profileForm: any;
 
@@ -26,6 +27,7 @@ export class ProfileComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.title.setTitle('My Ticket | Profile');
     this._globalService.httpGetProfile();
 
     if (this._globalService.getToken() === null || this._globalService.getToken() == ''){
