@@ -15,6 +15,10 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { TicketViewComponent } from './pages/tickets/ticket-view/ticket-view.component';
 import { TicketListComponent } from './pages/tickets/ticket-list/ticket-list.component';
+import { OneColumnComponent } from './one-column/one-column.component';
+import { TwoColumnComponent } from './two-column/two-column.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,11 +34,16 @@ import { TicketListComponent } from './pages/tickets/ticket-list/ticket-list.com
     ProfileComponent,
     LoginComponent,
     TicketViewComponent,
-    TicketListComponent
+    TicketListComponent,
+    OneColumnComponent,
+    TwoColumnComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

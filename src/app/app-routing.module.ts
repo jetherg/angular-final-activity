@@ -9,21 +9,36 @@ import { TicketListComponent } from './pages/tickets/ticket-list/ticket-list.com
 import { TicketViewComponent } from './pages/tickets/ticket-view/ticket-view.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { TwoColumnComponent } from './two-column/two-column.component';
+import { OneColumnComponent } from './one-column/one-column.component';
 
 const routes: Routes = [
   {
-    path:'',component:PagesComponent, children: [
+    path:'',component:TwoColumnComponent, children: [
       { path:'',component:HomeComponent},
-      { path:'login',component:LoginComponent},
       { path:'profile',component:ProfileComponent},
       { path:'tickets',component:TicketsComponent ,children:[
         {path:'',component:TicketListComponent},
-        {path:'tickets/:id/view',component:TicketViewComponent}
+        {path:'tickets/:id/view',component:TicketViewComponent},
+        {path:'**', redirectTo:'not-found'}
       ]},
-      { path:'about-us',component:AboutUsComponent},
     ]
   },
-  {path:'not-found',component:NotFoundComponent},
+  {
+    path:'login',component:OneColumnComponent, children: [
+      { path:'',component:LoginComponent},
+      {path:'**', redirectTo:'not-found'}
+    ]
+  },
+  {
+    path:'about-us',component:OneColumnComponent, children: [
+      { path:'',component:AboutUsComponent},
+      {path:'**', redirectTo:'not-found'}
+    ]
+  },
+  {path:'not-found',component:OneColumnComponent,children:[
+    {path:'',component:NotFoundComponent}
+  ]},
   {path:'**', redirectTo:'not-found'}
 ];
 
